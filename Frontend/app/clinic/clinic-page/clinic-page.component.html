@@ -1,0 +1,45 @@
+<mat-tab-group mat-align-tabs="center">
+		<mat-tab label="Врачи">
+			<button mat-stroked-button (click)="reloadDoctors()">Обновить список</button>
+			<doctor-item hideToggle *ngFor="let item of doctors" [item]="item"></doctor-item>
+		</mat-tab>
+		<mat-tab label="Пациенты">
+			<button mat-stroked-button (click)="reloadPatients()">Обновить список</button>
+			<mat-divider></mat-divider>
+			<mat-form-field>
+				<mat-label>ФИО</mat-label>
+				<input matInput type="text" [(ngModel)]="patient.name">
+			</mat-form-field>
+			<mat-form-field>
+				<mat-label>НОМЕР ТЕЛЕФОНА</mat-label>
+				<input matInput type="text" [(ngModel)]="patient.phoneNumber">
+			</mat-form-field>
+			<mat-form-field>
+				<input matInput [matDatepicker]="picker" [(ngModel)]="patient.birthDate">
+				<mat-label>ММ/ДД/ГГГГ</mat-label>
+				<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+				<mat-datepicker #picker></mat-datepicker>
+			</mat-form-field>
+			<button mat-flat-button color="primary" (click)="addPatient();">Добавить</button>
+			<mat-divider></mat-divider>
+			<patient-item hideToggle *ngFor="let item of patients" [item]="item"></patient-item>
+		</mat-tab>
+		<mat-tab label="Талоны">
+			<button mat-stroked-button (click)="reloadVouchers()">Обновить список</button>
+			<mat-divider></mat-divider>
+			<mat-form-field>
+				<mat-label>ID ВРАЧА</mat-label>
+				<input matInput type="text" [(ngModel)]="voucher.doctorId">
+			</mat-form-field>
+			<mat-form-field>
+				<mat-label>ID ПАЦИЕНТА</mat-label>
+				<input matInput type="text" [(ngModel)]="voucher.patientId">
+			</mat-form-field>
+			<mat-form-field>
+				<input matInput type="datetime-local" [(ngModel)]="voucher.receptionTime">
+			</mat-form-field>
+			<button mat-flat-button color="primary" (click)="addVoucher();">Добавить</button>
+			<mat-divider></mat-divider>
+			<voucher-item hideToggle *ngFor="let item of vouchers" [item]="item"></voucher-item>
+		</mat-tab>
+</mat-tab-group>

@@ -1,0 +1,25 @@
+<mat-expansion-panel>
+	<mat-expansion-panel-header>
+		<mat-panel-title>
+			{{ item.id }}
+		</mat-panel-title>
+		<mat-panel-description>
+			{{ item.receptionTime }}
+		</mat-panel-description>
+	</mat-expansion-panel-header>
+
+	<p><b>ID: </b>{{ item.id }}</p>
+	<mat-divider></mat-divider>
+
+	<p><b>Время приёма: </b>{{ item.receptionTime }}</p>
+	<mat-divider></mat-divider>
+
+	<p><b>ID врача: </b>{{ item.doctorId }}</p>
+	<mat-divider></mat-divider>
+
+	<p><b>ID пациента: </b>{{ item.patientId }}</p>
+	<mat-divider></mat-divider>
+
+	<button mat-flat-button color="warn" (click)="deleteClicked();">Удалить</button>
+
+</mat-expansion-panel>

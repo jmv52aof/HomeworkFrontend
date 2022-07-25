@@ -1,0 +1,38 @@
+<!--
+<td>{{ item.name }}</td>
+<td>{{ item.specialisation }}</td>
+<td><button mat-stroked-button (click)="moreClicked();">Подробнее</button></td>
+-->
+<mat-expansion-panel>
+	<mat-expansion-panel-header>
+		<mat-panel-title>
+			{{ item.name }}
+		</mat-panel-title>
+		<mat-panel-description>
+			{{ item.phoneNumber }}
+		</mat-panel-description>
+	</mat-expansion-panel-header>
+
+	<p><b>ID: </b>{{ item.id }}</p>
+	<mat-divider></mat-divider>
+
+	<p><b>ФИО: </b>{{ item.name }}</p>
+	<mat-divider></mat-divider>
+
+	<p><b>Дата рождения: </b>{{ item.birthDate }} (год/месяц/день)</p>
+	<mat-divider></mat-divider>
+
+	<p><b>Номер телефона: </b>{{ item.phoneNumber }}</p>
+	<mat-divider></mat-divider>
+	<mat-form-field>
+		<mat-label>ФИО</mat-label>
+		<input matInput type="text" [(ngModel)]="item.name">
+	</mat-form-field>
+	<mat-form-field>
+		<mat-label>НОМЕР ТЕЛЕФОНА</mat-label>
+		<input matInput type="text" [(ngModel)]="item.phoneNumber">
+	</mat-form-field>
+	<button mat-flat-button color="primary" (click)="changeClicked();">Изменить</button>
+	<button mat-flat-button color="warn" (click)="deleteClicked();">Удалить</button>
+
+</mat-expansion-panel>
